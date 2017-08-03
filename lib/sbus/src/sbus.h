@@ -76,19 +76,19 @@ void sbus_process(unsigned char *data, void (*handler)(t_state *state))
 }
 
 
-int main() 
-{
+// int main() 
+// {
 
-  sbus_init();
+//   sbus_init();
   
-//while(1) {
-  // while(uart_is_empty());
-  //sbus_process(uart_get_char(), *handle_packet);
-  sbus_process("a", *handle_packet);
-//}  
+// //while(1) {
+//   // while(uart_is_empty());
+//   //sbus_process(uart_get_char(), *handle_packet);
+//   sbus_process("a", *handle_packet);
+// //}  
 
 
-  //printf("rwar");
+//   //printf("rwar");
 
-	return 0;
-}
+// 	return 0;
+// }
