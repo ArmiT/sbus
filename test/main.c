@@ -5,7 +5,7 @@
 
 void test_f(void)
 {
-    TEST_ASSERT_EQUAL(1, 1);
+    TEST_ASSERT_EQUAL(2, 2);
 }
 
 int main(void)
