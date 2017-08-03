@@ -54,7 +54,7 @@ cache:
         - "~/.platformio"
 
 env:
-    - PLATFORMIO_AUTH_TOKEN $PLATFORMIO_TOKEN
+    - PLATFORMIO_AUTH_TOKEN=$PLATFORMIO_TOKEN
     - PLATFORMIO_CI_SRC=test/
 
 install:
