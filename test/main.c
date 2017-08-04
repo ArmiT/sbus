@@ -44,11 +44,12 @@ void test_invalid_start_byte(void)
 }
 
 void test_process_address(void)
-{
+{   
+    unsigned char i = 0;
     unsigned char packet[2] = {0xAA, 0xEE};
 
     sbus_init();
-    for(unsigned char i=0;i<2;i++) {
+    for(i;i<2;i++) {
         sbus_process(&packet[i], 0x00);
     }
     TEST_ASSERT_EQUAL(state.stage, STAGE_WAIT_LENGTH);
@@ -56,11 +57,12 @@ void test_process_address(void)
 }
 
 void test_process_length(void) 
-{
+{   
+    unsigned char i = 0;
     unsigned char packet[3] = {0xAA, 0xEE, 0x02};
 
     sbus_init();
-    for(unsigned char i=0;i<3;i++) {
+    for(i;i<3;i++) {
         sbus_process(&packet[i], 0x00);
     }
     TEST_ASSERT_EQUAL(state.stage, STAGE_WAIT_DATA);
@@ -68,11 +70,12 @@ void test_process_length(void)
 }
 
 void test_process_data(void)
-{
+{   
+    unsigned char i = 0;
     unsigned char packet[5] = {0xAA, 0xEE, 0x02, 0xE1, 0xE2};
 
     sbus_init();
-    for(unsigned char i=0;i<5;i++) {
+    for(i;i<5;i++) {
         sbus_process(&packet[i], 0x00);
     }
 
