@@ -5,6 +5,6 @@
 int main(void) 
 {
     printf("initied!!!");
-    sbus_init();
+    //sbus_init();
 }
 #endif

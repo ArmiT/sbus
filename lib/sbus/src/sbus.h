@@ -26,20 +26,22 @@ typedef struct {
   unsigned char crc_lsb;
   char data[SBUS_DATA_MAX_LENGTH];
   unsigned char data_head;
-} t_state;
+  void (*receive_handler)(char *data);
+  void (*tramsmit_handler)(void);
+} sbus_state_t;
 
-t_state state;
+sbus_state_t state;
 
 // initializes sbus processor
 // clears state
-void sbus_init(void);
+void sbus_init(sbus_state_t *state);
 
 // process received byte as part of packet
 void sbus_process(unsigned char *data, void (*handler)(char *data));
 
 #ifdef UNIT_TEST
 // process start byte
-void process_start_byte(unsigned char *byte, t_state *state);
+void process_start_byte(unsigned char *byte, sbus_state_t *state);
 #endif
 
 #endif
