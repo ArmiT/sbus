@@ -5,10 +5,8 @@
 #ifndef SBUS_H_
 
 #define SBUS_SELF_ADDRESS       0x01
-#define SBUS_DATA_MAX_LENGTH    10
 #define SBUS_PACKET_LENGTH      SBUS_DATA_MAX_LENGTH + 6;
 #define SBUS_START_BYTE         0xAA
-#define SBUS_STOP_BYTE          0x55
 
 #define STAGE_WAIT_START        0x00
 #define STAGE_WAIT_ADDRESS      0x01
@@ -24,24 +22,17 @@ typedef struct {
   unsigned char length;
   unsigned char crc_msb;
   unsigned char crc_lsb;
-  char data[SBUS_DATA_MAX_LENGTH];
+  unsigned char *buffer; // buffer pointer
   unsigned char data_head;
   void (*receive_handler)(char *data);
   void (*tramsmit_handler)(void);
-} sbus_state_t;
-
-sbus_state_t state;
+} sbus_connection_t;
 
 // initializes sbus processor
 // clears state
-void sbus_init(sbus_state_t *state);
+void sbus_init(sbus_connection_t *state);
 
 // process received byte as part of packet
 void sbus_process(unsigned char *data, void (*handler)(char *data));
-
-#ifdef UNIT_TEST
-// process start byte
-void process_start_byte(unsigned char *byte, sbus_state_t *state);
-#endif
 
 #endif

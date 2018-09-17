@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "mocks.h": "c"
+        "mocks.h": "c",
+        "sbus.h": "c",
+        "stdlib.h": "c",
+        "assert.h": "c"
     }
 }
